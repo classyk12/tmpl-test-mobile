@@ -18,14 +18,14 @@ dynamic returnResponse(Response response) {
   }
 }
 
-HandleError(String error, void Function() action) {
+handleError(String error, void Function() action) {
   return Center(
       child: Column(
     mainAxisAlignment: MainAxisAlignment.center,
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
-      Text(error, style: TextStyle(fontWeight: FontWeight.bold)),
-      SizedBox(height: 10),
+      Text(error, style: const TextStyle(fontWeight: FontWeight.bold)),
+      const SizedBox(height: 10),
       InkWell(
         onTap: () => action(),
         child: Row(

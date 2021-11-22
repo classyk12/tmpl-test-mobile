@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:tmpl_test/controllers/home-controller.dart';
+import 'package:tmpl_test/controllers/home_controller.dart';
 import 'package:tmpl_test/utils/error_handler.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -14,34 +14,34 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black,
-          title: Text('Users'),
+          title: const Text('Users'),
         ),
         body: Obx(() {
           if (_homeController.progress.value == LoadingEnum.loading) {
-            return Center(
+            return const Center(
                 child: CircularProgressIndicator(color: Colors.black));
           }
           if (_homeController.progress.value == LoadingEnum.done) {
             return ListView.separated(
               padding: EdgeInsets.zero,
-              physics: ScrollPhysics(),
+              physics: const ScrollPhysics(),
               itemCount: _homeController.jokes.length,
               shrinkWrap: true,
               itemBuilder: (context, index) {
                 return Text(
                   (_homeController.jokes[index].joke!),
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 12.0,
                     color: Colors.black,
                   ),
                 );
               },
               separatorBuilder: (context, index) {
-                return Divider();
+                return const Divider();
               },
             );
           }
-          return HandleError(
+          return handleError(
               _homeController.error.value, _homeController.getData);
         }));
   }

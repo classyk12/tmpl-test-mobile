@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tmpl_test/models/jokes_model.dart';
-import '';
 
 class HomeController extends GetxController {
   var progress = LoadingEnum.loading.obs;
@@ -27,7 +27,7 @@ class HomeController extends GetxController {
     } catch (err) {
       progress.value = LoadingEnum.failed;
       error.value = err.toString();
-      print('err');
+      debugPrint('err');
     }
   }
 }
