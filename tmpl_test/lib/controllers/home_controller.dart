@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tmpl_test/models/jokes_model.dart';
+import 'package:tmpl_test/services/joke_service.dart';
 
 class HomeController extends GetxController {
   var progress = LoadingEnum.loading.obs;
@@ -19,7 +19,7 @@ class HomeController extends GetxController {
     try {
       var response = await jokeService.getJokes();
       progress.value = LoadingEnum.done;
-      if (response != null) {
+      if (response.statusCode == 200 || response.statusCode == 201) {
         jokes.assignAll(response.data);
       } else {
         progress.value = LoadingEnum.failed;
@@ -27,7 +27,6 @@ class HomeController extends GetxController {
     } catch (err) {
       progress.value = LoadingEnum.failed;
       error.value = err.toString();
-      debugPrint('err');
     }
   }
 }

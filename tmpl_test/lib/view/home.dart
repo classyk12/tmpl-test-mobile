@@ -28,11 +28,13 @@ class HomeScreen extends StatelessWidget {
               itemCount: _homeController.jokes.length,
               shrinkWrap: true,
               itemBuilder: (context, index) {
-                return Text(
-                  (_homeController.jokes[index].joke!),
-                  style: const TextStyle(
-                    fontSize: 12.0,
-                    color: Colors.black,
+                return Container(
+                  child: Text(
+                    (_homeController.jokes[index].joke!),
+                    style: const TextStyle(
+                      fontSize: 12.0,
+                      color: Colors.black,
+                    ),
                   ),
                 );
               },
