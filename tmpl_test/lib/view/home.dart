@@ -13,8 +13,9 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.black,
-          title: const Text('Users'),
+          elevation: 0,
+          backgroundColor: Colors.red,
+          title: const Text('Jokes'),
         ),
         body: Obx(() {
           if (_homeController.progress.value == LoadingEnum.loading) {
@@ -23,7 +24,7 @@ class HomeScreen extends StatelessWidget {
           }
           if (_homeController.progress.value == LoadingEnum.done) {
             return ListView.separated(
-              padding: EdgeInsets.zero,
+              padding: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
               physics: const ScrollPhysics(),
               itemCount: _homeController.jokes.length,
               shrinkWrap: true,
@@ -39,7 +40,10 @@ class HomeScreen extends StatelessWidget {
                 );
               },
               separatorBuilder: (context, index) {
-                return const Divider();
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: const Divider(),
+                );
               },
             );
           }

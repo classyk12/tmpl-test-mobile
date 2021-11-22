@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 
 class ResourceService {
   final Dio _dio = Dio();
-  String? baseUrl = '';
-  String? contentType;
 
-  ResourceService({this.baseUrl, this.contentType}) {
-    _dio.options.baseUrl = "";
+  ResourceService() {
+    // in a real world scenerio, this should be kept in a constant file or config file
+    _dio.options.baseUrl = "https://yomomma-api.herokuapp.com/";
     _dio.options.connectTimeout = 60 * 1000; // 60 seconds
     _dio.options.receiveTimeout = 60 * 1000; // 60 seconds
   }

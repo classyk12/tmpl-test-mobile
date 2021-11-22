@@ -1,13 +1,14 @@
-class JokeModel {
+List<JokesModel> jokesModelFromMap(List<dynamic> json) =>
+    List<JokesModel>.from(json.map((x) => JokesModel.fromMap(x)));
+
+class JokesModel {
+  JokesModel({
+    this.joke,
+  });
+
   String? joke;
 
-  JokeModel({this.joke});
-
-  factory JokeModel.fromMap(Map<dynamic, String> json) => JokeModel(
+  factory JokesModel.fromMap(Map<String, dynamic> json) => JokesModel(
         joke: json["joke"],
       );
-}
-
-List<JokeModel> jokesModelFromMap(List<dynamic> data) {
-  return List<JokeModel>.from(data.map((x) => JokeModel.fromMap(x)));
 }

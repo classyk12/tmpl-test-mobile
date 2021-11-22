@@ -4,7 +4,7 @@ import 'package:tmpl_test/services/joke_service.dart';
 
 class HomeController extends GetxController {
   var progress = LoadingEnum.loading.obs;
-  var jokes = <JokeModel>[].obs;
+  var jokes = <JokesModel>[].obs;
   var error = ''.obs;
   var jokeService = JokesService();
 
@@ -17,10 +17,10 @@ class HomeController extends GetxController {
   Future getData() async {
     progress.value = LoadingEnum.loading;
     try {
-      var response = await jokeService.getJokes();
+      var res = await jokeService.getJokes();
       progress.value = LoadingEnum.done;
-      if (response.statusCode == 200 || response.statusCode == 201) {
-        jokes.assignAll(response.data);
+      if (res.statusCode == 200 || res.statusCode == 201) {
+        jokes.value = jokesModelFromMap(res.data!);
       } else {
         progress.value = LoadingEnum.failed;
       }
