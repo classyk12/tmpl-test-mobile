@@ -8,13 +8,14 @@ class JokesService {
   final _resource = ResourceService();
 
   Future<Response> getJokes() async {
+    var res = null;
     try {
-      Response response =
+      Response res =
           await _resource.request('jokes?count=20', body: null, method: "Get");
-      debugPrint('this is response status ==>${response.statusCode}');
-      return response;
-    } on DioError catch (e) {
-      throw ErrorHandler.catchError(e);
+      debugPrint('this is response status ==>${res.statusCode}');
+      return res;
+    } catch (e) {
+      return returnResponse(res);
     }
   }
 }
