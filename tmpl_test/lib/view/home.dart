@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
+  Future<Response> response;
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -13,9 +14,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
         appBar: AppBar(title: const Text('Temple Test Home')), body: Container()
 
-        //FutureBuilder(builder: (context, ))
+        FutureBuilder(builder: (context, ))
 
-        //TODO: use future builder to load data,
         );
   }
 }
