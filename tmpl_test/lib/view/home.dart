@@ -24,25 +24,23 @@ class HomeScreen extends StatelessWidget {
           }
           if (_homeController.progress.value == LoadingEnum.done) {
             return ListView.separated(
-              padding: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
               physics: const ScrollPhysics(),
               itemCount: _homeController.jokes.length,
               shrinkWrap: true,
               itemBuilder: (context, index) {
-                return Container(
-                  child: Text(
-                    (_homeController.jokes[index].joke!),
-                    style: const TextStyle(
-                      fontSize: 12.0,
-                      color: Colors.black,
-                    ),
+                return Text(
+                  (_homeController.jokes[index].joke!),
+                  style: const TextStyle(
+                    fontSize: 12.0,
+                    color: Colors.black,
                   ),
                 );
               },
               separatorBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: const Divider(),
+                return const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Divider(),
                 );
               },
             );

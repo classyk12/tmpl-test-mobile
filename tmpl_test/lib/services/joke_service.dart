@@ -8,6 +8,7 @@ class JokesService {
   final _resource = ResourceService();
 
   Future<Response> getJokes() async {
+    // ignore: avoid_init_to_null
     var res = null;
     try {
       Response res =

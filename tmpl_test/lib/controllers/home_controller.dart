@@ -26,7 +26,7 @@ class HomeController extends GetxController {
       }
     } catch (err) {
       progress.value = LoadingEnum.failed;
-      error.value = err.toString();
+      error.value = 'Unable to load jokes, try again';
     }
   }
 }
